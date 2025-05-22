@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reportes de Arquitectura de Computadoras</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #4355f8;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .autor {
+      background-color: #4e0086;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    nav {
+      background-color: #f0f0f0;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 20px;
+    }
+
+    .pdf-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .pdf-item iframe {
+      width: 100%;
+      height: 300px;
+      border: 1px solid #ccc;
+    }
+
+    .university-info {
+      background-color: #e9ecef;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .university-info img {
+      max-width: 150px;
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Reportes de Arquitectura de Computadoras</h1>
+  </header>
+
+  <div class="autor">
+    Autor: Charbel Andres Castillo Reyes
+  </div>
+
+  <nav>
+    <button onclick="document.getElementById('pdfs').scrollIntoView({behavior: 'smooth'});">
+      Ver PDFs
+    </button>
+  </nav>
+
+<section id="pdfs">
+  <h2>Reportes y Tareas</h2>
+  <p>Estas son todas las prácticas y tareas en PDF:</p>
+
+  <style>
+    .pdf-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .pdf-item {
+      margin-bottom: 30px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 20px;
+    }
+
+    .expand-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #0056b3;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .pdf-frame {
+      width: 100%;
+      height: 1800px; /* Altura aumentada */
+      border: 1px solid #aaa;
+      display: none;
+    }
+  </style>
+
+  <ul class="pdf-list">
+
+    <li class="pdf-item">
+      <button class="expand-button" onclick="togglePDF(this)">Reporte Práctica 1</button>
+      <iframe class="pdf-frame" src="Reporte Practica 1.pdf"></iframe>
+    </li>
+
+    <li class="pdf-item">
+      <button class="expand-button" onclick="togglePDF(this)">Reporte Práctica 2</button>
+      <iframe class="pdf-frame" src="Reporte Practica 2.pdf"></iframe>
+    </li>
+
+    <li class="pdf-item">
+      <button class="expand-button" onclick="togglePDF(this)">Reporte Práctica 3</button>
+      <iframe class="pdf-frame" src="Reporte Practica 3.pdf"></iframe>
+    </li>
+
+    <li class="pdf-item">
+      <button class="expand-button" onclick="togglePDF(this)">Reporte Práctica 4</button>
+      <iframe class="pdf-frame" src="Reporte Práctica 4.pdf"></iframe>
+    </li>
+
+    <li class="pdf-item">
+      <button class="expand-button" onclick="togglePDF(this)">Reporte Práctica 5</button>
+      <iframe class="pdf-frame" src="Reporte Practica 5.pdf"></iframe>
+    </li>
+
+    <li class="pdf-item">
+      <button class="expand-button" onclick="togglePDF(this)">Procesadores de Intel y AMD</button>
+      <iframe class="pdf-frame" src="PROCESADORES DE INTEL Y AMD.pdf"></iframe>
+    </li>
+
+    <li class="pdf-item">
+      <button class="expand-button" onclick="togglePDF(this)">Gamas de equipos de cómputo</button>
+      <iframe class="pdf-frame" src="Gamas de equipos de cómputo.pdf"></iframe>
+    </li>
+
+    <li class="pdf-item">
+      <button class="expand-button" onclick="togglePDF(this)">Diseño de equipos</button>
+      <iframe class="pdf-frame" src="Diseño de equipos.pdf"></iframe>
+    </li>
+
+  </ul>
+
+  <script>
+    function togglePDF(button) {
+      const iframe = button.nextElementSibling;
+      const originalText = button.textContent;
+
+      if (iframe.style.display === "none" || iframe.style.display === "") {
+        iframe.style.display = "block";
+        button.textContent = "Ocultar PDF";
+      } else {
+        iframe.style.display = "none";
+        button.textContent = originalText.startsWith("Ocultar") ? "Ver " + originalText.slice(8) : originalText;
+      }
+    }
+  </script>
+</section>
+
+
+  <section class="university-info">
+    <h2>Información de la Universidad</h2>
+ 
+    <img src="escudo.png" alt="Escudo">
+
+    <p>
+      Instituto Tecnologico de Saltillo<br>
+      Curso: Arquitectura de computadoras<br>
+      Carrera de Ingeniería en Sistemas Computacionales<br>
+      Dirección: Venustiano Carranza  #SN, Saltillo, Mexico<br>
+      Sitio web: <a href="https://saltillo.tecnm.mx/">https://saltillo.tecnm.mx/</a>
+    </p>
+  </section>
+
+</body>
+</html>
