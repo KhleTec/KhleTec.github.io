@@ -31,26 +31,49 @@
       text-align: center;
     }
 
-    nav button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
 
     section {
       padding: 20px;
     }
 
-    .pdf-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+    .pdf-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
 
-    .pdf-item iframe {
+    .pdf-item {
+      margin-bottom: 30px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 20px;
+    }
+
+    .expand-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #0056b3;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .pdf-frame {
       width: 100%;
-      height: 300px;
-      border: 1px solid #ccc;
+      height: 1800px;
+      border: 1px solid #aaa;
+      display: none;
     }
 
     .university-info {
@@ -77,90 +100,112 @@
   </div>
 
   <nav>
-    <button onclick="document.getElementById('pdfs').scrollIntoView({behavior: 'smooth'});">
-      Ver PDFs
-    </button>
+    <a href="#introduccion">Introducción</a>
+    <a href="#indice">Índice</a>
+    <a href="#pdfs">Prácticas</a>
+    <a href="#unidades">Unidades</a>
   </nav>
 
-<section id="pdfs">
-  <h2>Reportes y Tareas</h2>
-  <p>Estas son todas las prácticas y tareas en PDF:</p>
+  <section id="introduccion">
+    <h2>Introducción</h2>
+    <p>Este sitio contiene los reportes de prácticas y tareas realizados para la materia de Arquitectura de Computadoras, así como una descripción detallada de las unidades vistas durante el curso. El objetivo es proporcionar una referencia organizada para el estudio y consulta de los temas fundamentales que componen esta área de la ingeniería en sistemas.</p>
+  </section>
 
-  <style>
-    .pdf-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
+  <section id="indice">
+    <h2>Índice de Prácticas</h2>
+    <ul>
+      <li><a href="#practica1">Reporte Práctica 1</a></li>
+      <li><a href="#practica2">Reporte Práctica 2</a></li>
+      <li><a href="#practica3">Reporte Práctica 3</a></li>
+      <li><a href="#practica4">Reporte Práctica 4</a></li>
+      <li><a href="#practica5">Reporte Práctica 5</a></li>
+      <li><a href="#intelamd">Procesadores de Intel y AMD</a></li>
+      <li><a href="#gamas">Gamas de equipos de cómputo</a></li>
+      <li><a href="#diseno">Diseño de equipos</a></li>
+    </ul>
+  </section>
 
-    .pdf-item {
-      margin-bottom: 30px;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 20px;
-    }
+  <section id="pdfs">
+    <h2>Reportes y Tareas</h2>
+    <ul class="pdf-list">
+      <li class="pdf-item" id="practica1">
+        <button class="expand-button" onclick="togglePDF(this)">Reporte Práctica 1</button>
+        <iframe class="pdf-frame" src="Reporte Practica 1.pdf"></iframe>
+      </li>
 
-    .expand-button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      background-color: #0056b3;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      margin-bottom: 10px;
-    }
+      <li class="pdf-item" id="practica2">
+        <button class="expand-button" onclick="togglePDF(this)">Reporte Práctica 2</button>
+        <iframe class="pdf-frame" src="Reporte Practica 2.pdf"></iframe>
+      </li>
 
-    .pdf-frame {
-      width: 100%;
-      height: 1800px; /* Altura aumentada */
-      border: 1px solid #aaa;
-      display: none;
-    }
-  </style>
+      <li class="pdf-item" id="practica3">
+        <button class="expand-button" onclick="togglePDF(this)">Reporte Práctica 3</button>
+        <iframe class="pdf-frame" src="Reporte Practica 3.pdf"></iframe>
+      </li>
 
-  <ul class="pdf-list">
+      <li class="pdf-item" id="practica4">
+        <button class="expand-button" onclick="togglePDF(this)">Reporte Práctica 4</button>
+        <iframe class="pdf-frame" src="Reporte Práctica 4.pdf"></iframe>
+      </li>
 
-    <li class="pdf-item">
-      <button class="expand-button" onclick="togglePDF(this)">Reporte Práctica 1</button>
-      <iframe class="pdf-frame" src="Reporte Practica 1.pdf"></iframe>
-    </li>
+      <li class="pdf-item" id="practica5">
+        <button class="expand-button" onclick="togglePDF(this)">Reporte Práctica 5</button>
+        <iframe class="pdf-frame" src="Reporte Practica 5.pdf"></iframe>
+      </li>
 
-    <li class="pdf-item">
-      <button class="expand-button" onclick="togglePDF(this)">Reporte Práctica 2</button>
-      <iframe class="pdf-frame" src="Reporte Practica 2.pdf"></iframe>
-    </li>
+      <li class="pdf-item" id="intelamd">
+        <button class="expand-button" onclick="togglePDF(this)">Procesadores de Intel y AMD</button>
+        <iframe class="pdf-frame" src="PROCESADORES DE INTEL Y AMD.pdf"></iframe>
+      </li>
 
-    <li class="pdf-item">
-      <button class="expand-button" onclick="togglePDF(this)">Reporte Práctica 3</button>
-      <iframe class="pdf-frame" src="Reporte Practica 3.pdf"></iframe>
-    </li>
+      <li class="pdf-item" id="gamas">
+        <button class="expand-button" onclick="togglePDF(this)">Gamas de equipos de cómputo</button>
+        <iframe class="pdf-frame" src="Gamas de equipos de cómputo.pdf"></iframe>
+      </li>
 
-    <li class="pdf-item">
-      <button class="expand-button" onclick="togglePDF(this)">Reporte Práctica 4</button>
-      <iframe class="pdf-frame" src="Reporte Práctica 4.pdf"></iframe>
-    </li>
+      <li class="pdf-item" id="diseno">
+        <button class="expand-button" onclick="togglePDF(this)">Diseño de equipos</button>
+        <iframe class="pdf-frame" src="Diseño de equipos.pdf"></iframe>
+      </li>
+    </ul>
+  </section>
 
-    <li class="pdf-item">
-      <button class="expand-button" onclick="togglePDF(this)">Reporte Práctica 5</button>
-      <iframe class="pdf-frame" src="Reporte Practica 5.pdf"></iframe>
-    </li>
+  <section id="unidades">
+    <h2>Unidades</h2>
 
-    <li class="pdf-item">
-      <button class="expand-button" onclick="togglePDF(this)">Procesadores de Intel y AMD</button>
-      <iframe class="pdf-frame" src="PROCESADORES DE INTEL Y AMD.pdf"></iframe>
-    </li>
+    <h3>Unidad 1: Modelos de Arquitectura de Computación</h3>
+    <p>
+      La Unidad 1 "Modelos de Arquitectura de Computación" introduce los principios fundamentales detrás del diseño y funcionamiento de las computadoras. Desde la arquitectura clásica de von Neumann hasta las más modernas y especializadas, se exploran conceptos como la jerarquía de memoria, las arquitecturas RISC vs. CISC y los sistemas paralelos. Los estudiantes obtienen una comprensión sólida de cómo interactúan los componentes clave, como la CPU, la memoria y los dispositivos de entrada/salida, para ejecutar programas y procesar datos, sentando las bases para el estudio avanzado de la informática y la ingeniería de sistemas.
+    </p>
 
-    <li class="pdf-item">
-      <button class="expand-button" onclick="togglePDF(this)">Gamas de equipos de cómputo</button>
-      <iframe class="pdf-frame" src="Gamas de equipos de cómputo.pdf"></iframe>
-    </li>
+    <h3>Unidad 2: Organización y Estructura de un Procesador</h3>
+    <p>
+      La Unidad 2 "Organización y Estructura de un Procesador" explora en detalle cómo están organizados y diseñados los procesadores para ejecutar instrucciones y realizar operaciones. Desde la arquitectura de la unidad de control hasta la ejecución de instrucciones en la unidad de ejecución, los estudiantes examinan cómo se procesan y manipulan los datos dentro del procesador. Se estudian temas como la pipeline, la caché, las unidades funcionales y los métodos de predicción de ramas, proporcionando una comprensión profunda de cómo funciona internamente un procesador y cómo estas estructuras impactan en su rendimiento y eficiencia.
+    </p>
 
-    <li class="pdf-item">
-      <button class="expand-button" onclick="togglePDF(this)">Diseño de equipos</button>
-      <iframe class="pdf-frame" src="Diseño de equipos.pdf"></iframe>
-    </li>
+    <h3>Unidad 3: Chipset y Aplicaciones</h3>
+    <p>
+      La Unidad 3 "Chipset y Aplicaciones" se sumerge en el papel fundamental que desempeñan los chipsets en el funcionamiento de una computadora. Los estudiantes exploran cómo los chipsets actúan como interfaz entre el procesador, la memoria, los dispositivos de entrada/salida y otros componentes del sistema, coordinando y gestionando eficientemente el flujo de datos. Además, se analizan aplicaciones específicas de los chipsets en diferentes contextos, como en sistemas embebidos, servidores, dispositivos móviles y computación de alto rendimiento, brindando una comprensión amplia de su importancia y diversidad de usos en el panorama tecnológico actual.
+    </p>
 
-  </ul>
+    <h3>Unidad 4: Aspectos Básicos de la Computación Paralela</h3>
+    <p>
+      La Unidad 4 "Aspectos Básicos de la Computación Paralela" se adentra en los fundamentos esenciales de cómo se diseñan y desarrollan sistemas informáticos que ejecutan tareas en paralelo. Desde la comprensión de los conceptos básicos de la programación paralela hasta la exploración de arquitecturas de hardware dedicadas, los estudiantes examinan cómo se pueden distribuir las cargas de trabajo para lograr un procesamiento más rápido y eficiente. Se estudian técnicas como el procesamiento en paralelo a nivel de instrucción y a nivel de datos, así como también se analizan los desafíos y las soluciones para garantizar la sincronización y la coherencia de los datos en entornos paralelos. Esta unidad proporciona una base sólida para comprender y aplicar los principios de la computación paralela en una variedad de contextos y aplicaciones.
+    </p>
+
+  </section>
+
+  <section class="university-info">
+    <h2>Información de la Universidad</h2>
+    <img src="escudo.png" alt="Escudo">
+    <p>
+      Instituto Tecnológico de Saltillo<br>
+      Curso: Arquitectura de computadoras<br>
+      Carrera de Ingeniería en Sistemas Computacionales<br>
+      Dirección: Venustiano Carranza #SN, Saltillo, México<br>
+      Sitio web: <a href="https://saltillo.tecnm.mx/">https://saltillo.tecnm.mx/</a>
+    </p>
+  </section>
 
   <script>
     function togglePDF(button) {
@@ -176,22 +221,6 @@
       }
     }
   </script>
-</section>
-
-
-  <section class="university-info">
-    <h2>Información de la Universidad</h2>
- 
-    <img src="escudo.png" alt="Escudo">
-
-    <p>
-      Instituto Tecnologico de Saltillo<br>
-      Curso: Arquitectura de computadoras<br>
-      Carrera de Ingeniería en Sistemas Computacionales<br>
-      Dirección: Venustiano Carranza  #SN, Saltillo, Mexico<br>
-      Sitio web: <a href="https://saltillo.tecnm.mx/">https://saltillo.tecnm.mx/</a>
-    </p>
-  </section>
 
 </body>
 </html>
